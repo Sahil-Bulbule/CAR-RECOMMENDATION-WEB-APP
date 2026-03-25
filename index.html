@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DrivePilot · Premium Car Recommender</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">DrivePilot</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#compare">Compare</a>
+      <a href="#budget">Budget</a>
+      <a href="#feedback">Feedback</a>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Find Your <span style="color: gold;"> <u>Perfect Car</u></span></h1>
+      <p class="hero-tagline">From ₹3 Lakh to ₹10 Crore <span style="color: gold;">--></span> 10+ premium cars <span style="color: gold;">--></span> Smart comparison</p>
+      <a href="#gallery" class="cta-btn">Explore Cars <i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel-slides" id="carouselSlides">
+        <div class="carousel-slide" style="background-image: url('https://t3.ftcdn.net/jpg/04/82/25/08/360_F_482250830_PBoZWxf124l2kZVVBStgj78xbSivxH2i.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1612393266591-c32944e815c8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGFtYm98ZW58MHx8MHx8fDA%3D');"></div>
+        <div class="carousel-slide" style="background-image: url('https://www.mansory.com/cdn-cgi/image/format=avif,quality=90/https://cdn.prod.website-files.com/661d6e0d2e84ef511db18f17/6818c42d5d399a5f04bcd9eb_Rolls-Royce%2520Dawn-Thumbnail-001.webp');"></div>
+        <div class="carousel-slide" style="background-image: url('https://cdn-s3.autocarindia.com/legacy/cdni/mmv_images/colors/20250625102718_BMW_M4_Isle_Of_Man_Green_Metallic[1].jpg?w=728&q=75');"></div>
+      </div>
+      <button class="carousel-btn prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="carousel-btn next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2 style="margin-top: 20px;" class="section-title">WHY DRIVERS <span style="color: gold;">TRUST US !</span></h2>
+      <div class="about-cards">
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Smart AI Insights</h3>
+          <p>Advanced algorithms analyze your driving patterns and preferences to suggest the perfect match.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Real-time Comparison</h3>
+          <p>Compare 20+ parameters side by side. Make informed decisions with complete transparency.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+          <h3>Smart Budget Tool</h3>
+          <p>Input your budget, get instant recommendations including ownership costs and EMI estimates.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h3>Verified Data</h3>
+          <p>All specifications from official sources. Updated monthly with new launches and price changes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <h2 style="margin-top: 20px;" class="section-title">CAR <span style="color: gold;">GALLARY</span></h2>
+      <div class="filter-btns">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Hatchback">Hatchback</button>
+        <button class="filter-btn" data-filter="Sedan">Sedan</button>
+        <button class="filter-btn" data-filter="SUV">SUV</button>
+        <button class="filter-btn" data-filter="Luxury">Luxury</button>
+        <button class="filter-btn" data-filter="Supercar">Supercar</button>
+      </div>
+      <div class="car-grid" id="carGrid"></div>
+    </div>
+  </section>
+
+  <div class="car-detail-overlay" id="carDetailOverlay">
+    <div class="car-detail-card" id="carDetailCard"></div>
+  </div>
+
+  <section id="compare" class="compare">
+    <div class="container">
+      <h2 style="margin-top: 20px;" class="section-title">COMPARE <span style="color: gold;">TWO CARS</span></h2>
+      
+      <div class="compare-selector">
+        <div class="select-box">
+          <label><i class="fa-solid fa-car"></i> Car 1</label>
+          <select id="car1Select">
+            <option value="">-- Select a car --</option>
+          </select>
+        </div>
+        <div class="select-box">
+          <label><i class="fa-solid fa-car"></i> Car 2</label>
+          <select id="car2Select">
+            <option value="">-- Select a car --</option>
+          </select>
+        </div>
+        <button id="compareBtn" class="compare-btn">
+          <i class="fa-solid fa-code-compare"></i> Compare
+        </button>
+      </div>
+
+      <div class="compare-table-wrapper" id="compareTable" style="display: none;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Specifications</th>
+              <th id="car1Name">-</th>
+              <th id="car2Name">-</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Price (₹)</td>
+              <td id="car1Price">-</td>
+              <td id="car2Price">-</td>
+            </tr>
+            <tr>
+              <td>Top Speed</td>
+              <td id="car1Speed">-</td>
+              <td id="car2Speed">-</td>
+            </tr>
+            <tr>
+              <td>Mileage</td>
+              <td id="car1Mileage">-</td>
+              <td id="car2Mileage">-</td>
+            </tr>
+            <tr>
+              <td>Engine</td>
+              <td id="car1Engine">-</td>
+              <td id="car2Engine">-</td>
+            </tr>
+            <tr>
+              <td>Category</td>
+              <td id="car1Category">-</td>
+              <td id="car2Category">-</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="recommendation" id="recommendationMsg"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="budget" class="budget">
+    <div class="container">
+      <h2 style="margin-top: 20px;" class="section-title">BUDGET <span style="color: gold;">RECOMMENDATION</span></h2>
+      <div class="budget-slider">
+        <label>Your max budget: ₹<span class="budget-value" id="budgetValue">50,00,000</span></label>
+        <input type="range" id="priceRange" min="300000" max="100000000" step="100000" value="5000000">
+        <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+          <span>₹3 Lakh</span>
+          <span>₹10 Crore</span>
+        </div>
+      </div>
+      <div class="budget-cars" id="budgetCars"></div>
+    </div>
+  </section>
+
+  <section id="feedback" class="feedback">
+    <div class="container">
+      <h2 style="margin-top: 20px;" class="section-title">SHARE YOUR <span style="color: gold;">FEEDBACK</span></h2>
+      <br>
+      <form id="feedbackForm" style="margin-top: 50px;">
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email address" required>
+        </div>
+        <div class="form-group">
+          <textarea id="message" rows="4" placeholder="Tell us about your experience..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send message</button>
+        <div id="formSuccess" class="success-message"></div>
+      </form>
+    </div>
+  </section>
+<script src="script.js"></script>
+</body>
+</html>
