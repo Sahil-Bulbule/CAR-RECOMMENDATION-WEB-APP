@@ -12,7 +12,7 @@ The Car Recommendation Web App is a web-based application designed to suggest su
 - Responsive and clean user interface.  
 
 🛠️ Tech Stack  :-
-
+ 
 - HTML5  
 - CSS3  
 - JavaScript  
