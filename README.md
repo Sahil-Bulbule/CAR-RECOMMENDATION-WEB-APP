@@ -16,7 +16,7 @@ The Car Recommendation Web App is a web-based application designed to suggest su
 - HTML5   
 - CSS3  
 - JavaScript  
-
+ 
 ⚙️ Functionality  :-
 
 The application processes user input and applies conditional logic to filter available car data. Results are rendered dynamically on the interface without requiring page reloads, ensuring a smooth user experience.
